@@ -20,7 +20,7 @@ form.addEventListener('submit', function(e) {
     const containerMensagemSucesso = document.querySelector('.sucess-message');
     const containerMensagemErro = document.querySelector('.error-message');
 
-    formEValido = validaNumero(numeroA.value, numeroB.value)
+    formEValido = validaNumero(numeroA.valueAsNumber, numeroB.valueAsNumber)
     if (formEValido) {
 
         containerMensagemSucesso.innerHTML = mensagemSucesso;
