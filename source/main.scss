@@ -1,0 +1,121 @@
+@use './config/reset';
+@use './config/variaveis';
+
+@mixin cursorPointer() {
+    cursor: pointer;
+}
+
+body {
+    background-color: variaveis.$corCinzaClaro;
+    color: variaveis.$corCinzaEscuro;
+}
+
+header {
+    text-align: center;
+    padding: 30px 0;
+    background-color: variaveis.$corAmareloClaro;
+
+}
+
+.container {
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.cards-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 150px);
+
+    .card {
+        text-align: center;
+    
+        h2 {
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid variaveis.$corCinzaMedio;
+        }
+    
+        .imagem-card {
+            height: 270px;
+            width: 200px;
+            background-color: variaveis.$corAzulEscuro;
+            border-radius: 16px;
+            @include cursorPointer();
+
+            &:hover {
+                transform: scale(1.02);
+                background-color: darken(variaveis.$corAzulEscuro, 5%);
+                transition: 500ms;
+            }
+        }
+    
+        button {
+            margin-top: 16px;
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            background-color: variaveis.$corAmareloClaro;
+            color: variaveis.$corCinzaEscuro;
+            border-radius: 8px;
+            @include cursorPointer();
+
+            &:hover {
+                background-color: variaveis.$corCinzaEscuro;
+                color: variaveis.$corCinzaClaro;
+                transition: 500ms;
+            }
+        }
+    }
+
+    .card-central {
+        margin-right: 40px;
+        margin-left: 40px;
+    }
+}
+
+@media screen and (max-width: variaveis.$tablet) {
+    .container-tablet {
+        max-width: 500px;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        justify-items: center;
+    }
+
+    .cards-container {
+        margin-top: 80px;
+        height: 600px;
+    }
+
+    .card {
+        margin-top: 32px;
+        
+        button {
+            margin-bottom: 16px;
+        }
+    }
+}
+
+
+@media screen and (max-width: variaveis.$mobile) {
+
+    .container {
+        max-width: 300px;
+        display: grid;
+        grid-template-columns: 100%;
+        justify-items: center;
+    }
+
+    .card {
+        margin-top: 32px;
+        
+        button {
+            margin-bottom: 16px;
+        }
+    }
+}
+
+
+
